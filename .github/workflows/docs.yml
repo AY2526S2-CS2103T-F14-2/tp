@@ -1,4 +1,4 @@
-name: MarkBind Action
+gi name: MarkBind Action
 
 on:
   push:
