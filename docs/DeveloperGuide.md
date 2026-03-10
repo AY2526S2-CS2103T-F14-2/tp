@@ -275,7 +275,7 @@ _{Explain here how the data archiving feature will be implemented}_
 **Target user profile**:
 
 * runs a pet grooming business
-* manages many repeat customers
+* manages many repeat clients
 * requires fast access to pet and client information during work
 * needs reliable record keeping
 * prefer desktop apps over other types
@@ -304,7 +304,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user     | view a client's details    | see the details of a client to contact |
 | `* * *`  | user     | link a client to their pet | record who the pet's owner is |
 | `* * *`  | user     | remove a pet               | delete outdated pet information |
-| `* * *`  | user     | remove a client            | remove customers who no longer visit my shop |
+| `* * *`  | user     | remove a client            | remove clients who no longer visit my shop |
 | `* *`    | user     | edit a client's information | keep my client records up to date |
 | `* *`    | user     | edit a pet's details       | update pet information when needed |
 | `* *`    | user     | search for clients by name | quickly locate a specific client's details |
@@ -320,8 +320,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | user     | view grooming notes for a pet | recall a pet's special requirements |
 | `* *`    | user     | update grooming notes for a pet | update a pet's requirements as they change |
 | `* *`    | user     | delete grooming notes for a pet | remove outdated information |
-| `* *`    | experienced user | filter pets by animal type | view my customer demographic |
-| `* *`    | experienced user | attach tags to clients | categorize different types of customers | 
+| `* *`    | experienced user | filter pets by animal type | view my client demographic |
+| `* *`    | experienced user | attach tags to clients | categorize different types of clients | 
 | `* *`    | experienced user | attach tags to pets    | flag out pets with special requirements |
 | `* *`    | experienced user | filter clients by tags | retrieve all clients of that category   | 
 | `* *`    | experienced user | filter pets by tags    | retrieve all pets of that category      |
