@@ -13,6 +13,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.pet.Pet;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -120,5 +121,32 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses a {@code String pet} into a {@code Pet}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code pet} is invalid.
+     */
+    public static Pet parsePet(String pet) throws ParseException {
+        requireNonNull(pet);
+        String trimmedPet = pet.trim();
+        if (!Pet.isValidPetName(trimmedPet)) {
+            throw new ParseException(Pet.MESSAGE_CONSTRAINTS);
+        }
+        return new Pet(trimmedPet);
+    }
+
+    /**
+     * Parses {@code Collection<String> tags} into a {@code Set<Tag>}.
+     */
+    public static Set<Pet> parsePets(Collection<String> pets) throws ParseException {
+        requireNonNull(pets);
+        final Set<Pet> petSet = new HashSet<>();
+        for (String petName : pets) {
+            petSet.add(parsePet(petName));
+        }
+        return petSet;
     }
 }
