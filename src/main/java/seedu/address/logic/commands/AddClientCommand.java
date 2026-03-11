@@ -78,7 +78,7 @@ public class AddClientCommand extends Command {
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .add("toAdd", toAdd)
+                .add("client", toAdd)
                 .toString();
     }
 }

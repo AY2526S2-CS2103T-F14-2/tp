@@ -82,7 +82,7 @@ public class AddClientCommandTest {
     @Test
     public void toStringMethod() {
         AddClientCommand addClientCommand = new AddClientCommand(ALICE);
-        String expected = AddClientCommand.class.getCanonicalName() + "{toAdd=" + ALICE + "}";
+        String expected = AddClientCommand.class.getCanonicalName() + "{client=" + ALICE + "}";
         assertEquals(expected, addClientCommand.toString());
     }
 
