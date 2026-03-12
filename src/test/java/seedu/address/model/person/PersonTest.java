@@ -15,6 +15,7 @@ import static seedu.address.testutil.TypicalPersons.BOB;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.model.util.SampleDataUtil;
 import seedu.address.testutil.PersonBuilder;
 
 public class PersonTest {
@@ -23,6 +24,18 @@ public class PersonTest {
     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
         Person person = new PersonBuilder().build();
         assertThrows(UnsupportedOperationException.class, () -> person.getTags().remove(0));
+    }
+
+    @Test
+    public void petConstructor() {
+        Person person = new PersonBuilder().build();
+        Person newPerson = new Person(person, SampleDataUtil.getPetSet(VALID_PET_DOG));
+
+        // same phone number -> returns true
+        assertTrue(person.isSamePerson(newPerson));
+
+        // different pet list -> returns false
+        assertFalse(person.equals(newPerson));
     }
 
     @Test
@@ -97,5 +110,39 @@ public class PersonTest {
                 + ", email=" + ALICE.getEmail() + ", address=" + ALICE.getAddress()
                 + ", tags=" + ALICE.getTags() + ", pets=" + ALICE.getPets() + "}";
         assertEquals(expected, ALICE.toString());
+    }
+
+    @Test
+    public void hashCodeMethod() {
+        // same values -> returns true
+        Person aliceCopy = new PersonBuilder(ALICE).build();
+        assertTrue(ALICE.hashCode() == aliceCopy.hashCode());
+
+        // different person -> returns false
+        assertFalse(ALICE.hashCode() == BOB.hashCode());
+
+        // different name -> returns false
+        Person editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).build();
+        assertFalse(ALICE.hashCode() == editedAlice.hashCode());
+
+        // different phone -> returns false
+        editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
+        assertFalse(ALICE.hashCode() == editedAlice.hashCode());
+
+        // different email -> returns false
+        editedAlice = new PersonBuilder(ALICE).withEmail(VALID_EMAIL_BOB).build();
+        assertFalse(ALICE.hashCode() == editedAlice.hashCode());
+
+        // different address -> returns false
+        editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).build();
+        assertFalse(ALICE.hashCode() == editedAlice.hashCode());
+
+        // different tags -> returns false
+        editedAlice = new PersonBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
+        assertFalse(ALICE.hashCode() == editedAlice.hashCode());
+
+        //different pets ->returns false
+        editedAlice = new PersonBuilder(editedAlice).withPets(VALID_PET_DOG).build();
+        assertFalse(ALICE.hashCode() == editedAlice.hashCode());
     }
 }
