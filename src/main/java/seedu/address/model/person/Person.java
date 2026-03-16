@@ -51,6 +51,26 @@ public class Person {
         this.pets.addAll(pets);
     }
 
+    /**
+     * Every field must be present and not null.
+     */
+    public Person(Person person, Pet pet) {
+        requireAllNonNull(person, pet);
+        Set<Pet> currentPets = person.getPets();
+        Set<Pet> newPets = new HashSet<>();
+        for (Pet p : currentPets) {
+            newPets.add(p);
+        }
+        newPets.add(pet);
+
+        this.name = person.getName();
+        this.phone = person.getPhone();
+        this.email = person.getEmail();
+        this.address = person.getAddress();
+        this.tags.addAll(person.getTags());
+        this.pets.addAll(newPets);
+    }
+
     public Name getName() {
         return name;
     }
@@ -83,10 +103,10 @@ public class Person {
     }
 
     /**
-     * Adds a pet to the person's pet set.
+     * Adds a pet to the person's pet set and returns the updated person.
      */
-    public void addPet(Pet pet) {
-        pets.add(pet);
+    public Person addPet(Pet pet) {
+        return new Person(this, pet);
     }
 
     /**
