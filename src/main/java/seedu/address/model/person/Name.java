@@ -10,7 +10,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Name {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Phone numbers should not be blank or start with space";
+            "Name should not be blank";
     public static final String VALIDATION_REGEX = "[^\\s].*";
 
     public final String fullName;
