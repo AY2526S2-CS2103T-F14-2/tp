@@ -7,7 +7,6 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
-import static seedu.address.testutil.TypicalPersons.BOB;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.util.Arrays;
@@ -93,7 +92,7 @@ public class AddressBookTest {
     public void hasPet_petNotInList_returnsFalse() {
         Pet validPet = new Pet(new Name("Barkus"), "", "");
         addressBook.addPerson(ALICE);
-        assertTrue(addressBook.hasPet(ALICE.getPhone(), validPet));
+        assertFalse(addressBook.hasPet(ALICE.getPhone(), validPet));
     }
 
     @Test

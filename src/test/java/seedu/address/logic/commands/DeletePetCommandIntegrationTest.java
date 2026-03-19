@@ -56,7 +56,7 @@ public class DeletePetCommandIntegrationTest {
         Pet validPet = new PetBuilder().build();
 
         assertCommandFailure(new DeletePetCommand(validPet, personInList.getPhone()), model,
-                DeletePetCommand.MESSAGE_NONEXISTENT_PERSON);
+                DeletePetCommand.MESSAGE_NONEXISTENT_PET);
     }
 
 }

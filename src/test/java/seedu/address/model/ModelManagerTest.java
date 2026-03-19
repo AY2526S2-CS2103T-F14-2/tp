@@ -104,7 +104,7 @@ public class ModelManagerTest {
     public void hasPet_petNotInList_returnsFalse() {
         Pet validPet = new Pet(new Name("Barkus"), "", "");
         modelManager.addPerson(ALICE);
-        assertTrue(modelManager.hasPet(ALICE.getPhone(), validPet));
+        assertFalse(modelManager.hasPet(ALICE.getPhone(), validPet));
     }
 
     @Test

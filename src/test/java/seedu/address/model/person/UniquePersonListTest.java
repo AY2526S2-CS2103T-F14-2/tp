@@ -73,7 +73,7 @@ public class UniquePersonListTest {
     public void containsPet_petNotInList_returnsFalse() {
         Pet validPet = new Pet(new Name("Barkus"), "", "");
         uniquePersonList.add(ALICE);
-        assertTrue(uniquePersonList.containsPet(ALICE.getPhone(), validPet));
+        assertFalse(uniquePersonList.containsPet(ALICE.getPhone(), validPet));
     }
 
     @Test
