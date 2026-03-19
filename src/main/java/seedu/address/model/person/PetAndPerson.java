@@ -7,16 +7,22 @@ package seedu.address.model.person;
 public class PetAndPerson {
     private final Pet pet;
     private final Person person;
+    private final int petIndex;
+    private final int personIndex;
 
     /**
      * Constructs a {@code PetAndPerson}.
      *
      * @param pet A valid Pet object.
      * @param person A valid Person object.
+     * @param petIndex A valid integer determining the position of the Pet in the UI
+     * @param personIndex A valid integer determining the position of the Person in the list
      */
-    public PetAndPerson(Pet pet, Person person) {
+    public PetAndPerson(Pet pet, Person person, int petIndex, int personIndex) {
         this.pet = pet;
         this.person = person;
+        this.petIndex = petIndex;
+        this.personIndex = personIndex;
     }
 
     public Pet getPet() {
@@ -25,6 +31,14 @@ public class PetAndPerson {
 
     public Person getPerson() {
         return person;
+    }
+
+    public int getPetIndex() {
+        return petIndex;
+    }
+
+    public int getPersonIndex() {
+        return personIndex;
     }
 
     @Override
@@ -40,7 +54,9 @@ public class PetAndPerson {
 
         PetAndPerson otherPetAndPerson = (PetAndPerson) other;
         return pet.equals(otherPetAndPerson.getPet())
-                && person.equals(otherPetAndPerson.getPerson());
+                && person.equals(otherPetAndPerson.getPerson())
+                && petIndex == otherPetAndPerson.getPetIndex()
+                && personIndex == otherPetAndPerson.getPersonIndex();
     }
 
     @Override
