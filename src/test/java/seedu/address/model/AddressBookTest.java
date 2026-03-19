@@ -7,6 +7,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
+import static seedu.address.testutil.TypicalPersons.BOB;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.util.Arrays;
@@ -18,6 +19,7 @@ import org.junit.jupiter.api.Test;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Pet;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
@@ -77,6 +79,21 @@ public class AddressBookTest {
         Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
         assertTrue(addressBook.hasPerson(editedAlice));
+    }
+
+    @Test
+    public void hasPet_petInList_returnsTrue() {
+        Person validPerson = new PersonBuilder(ALICE).withPets("Barkus").build();
+        Pet validPet = new Pet(new Name("Barkus"), "", "");
+        addressBook.addPerson(validPerson);
+        assertTrue(addressBook.hasPet(validPerson.getPhone(), validPet));
+    }
+
+    @Test
+    public void hasPet_petNotInList_returnsFalse() {
+        Pet validPet = new Pet(new Name("Barkus"), "", "");
+        addressBook.addPerson(ALICE);
+        assertTrue(addressBook.hasPet(ALICE.getPhone(), validPet));
     }
 
     @Test
