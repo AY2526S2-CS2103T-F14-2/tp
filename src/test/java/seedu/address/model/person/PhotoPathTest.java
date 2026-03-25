@@ -4,7 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 public class PhotoPathTest {
 
@@ -68,5 +73,22 @@ public class PhotoPathTest {
         PhotoPath photoPath2 = new PhotoPath("/images/placeholder-pet-logo.png");
 
         assertTrue(photoPath1.hashCode() == photoPath2.hashCode());
+    }
+
+    @Test
+    public void isValidPhotoPath_validFileSystemPath_returnsTrue(@TempDir File tempDir) throws IOException {
+        // Create a temporary image file in the filesystem
+        File tempImageFile = new File(tempDir, "test-image.png");
+        Files.write(tempImageFile.toPath(), new byte[]{1, 2, 3}); // Write some dummy bytes
+
+        // Test that a valid filesystem path returns true (covers line 63: file.exists() && file.isFile())
+        assertTrue(PhotoPath.isValidPhotoPath(tempImageFile.getAbsolutePath()));
+    }
+
+    @Test
+    public void isValidPhotoPath_directoryPath_returnsFalse(@TempDir File tempDir) {
+        // Test that a directory path returns false even if it exists
+        // This tests the file.isFile() part of line 63
+        assertFalse(PhotoPath.isValidPhotoPath(tempDir.getAbsolutePath()));
     }
 }
