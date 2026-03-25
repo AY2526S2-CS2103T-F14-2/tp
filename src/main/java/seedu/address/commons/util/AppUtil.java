@@ -62,10 +62,6 @@ public class AppUtil {
             logger.warning("Failed to load image at " + imagePath + ": " + e.getMessage());
             logger.info("Loading placeholder image at " + placeholderPath);
             InputStream fallbackStream = MainApp.class.getResourceAsStream(placeholderPath);
-            if (fallbackStream == null) {
-                logger.severe("Placeholder image not found in resources: " + placeholderPath);
-                return null;
-            }
             image = new Image(fallbackStream);
         }
         return image;

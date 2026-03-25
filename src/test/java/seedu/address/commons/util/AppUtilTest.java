@@ -38,6 +38,18 @@ public class AppUtilTest {
     }
 
     @Test
+    public void loadImage_validFilePathImage_success() {
+        String validFilePath = System.getProperty("user.dir") + "/src/main/resources/images/placeholder-pet-logo.png";
+        assertNotNull(AppUtil.loadImage(validFilePath));
+    }
+
+    @Test
+    public void loadImage_invalidFilePathImage_loadsFallbackImage() {
+        String invalidFilePath = System.getProperty("user.dir") + "/src/main/resources/images/non_existing_image.png";
+        assertNotNull(AppUtil.loadImage(invalidFilePath));
+    }
+
+    @Test
     public void checkArgument_true_nothingHappens() {
         AppUtil.checkArgument(true);
         AppUtil.checkArgument(true, "");
