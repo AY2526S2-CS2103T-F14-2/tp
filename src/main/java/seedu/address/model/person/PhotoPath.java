@@ -4,6 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Represents a photo path for a Pet in the address book.
@@ -35,7 +37,25 @@ public class PhotoPath {
         if (test == null || test.trim().isEmpty()) {
             return false;
         }
-        File file = new File(test.trim());
+
+        String trimmedPath = test.trim();
+
+        // Check if given path is a classpath
+        if (trimmedPath.startsWith("/")) {
+            InputStream stream = seedu.address.MainApp.class.getResourceAsStream(trimmedPath);
+            if (stream != null) {
+                try {
+                    stream.close();
+                } catch (IOException e) {
+                    // Ignore
+                }
+                return true;
+            }
+            return false;
+        }
+
+        // Check if given path is a file system path
+        File file = new File(trimmedPath);
         return file.exists() && file.isFile();
     }
 

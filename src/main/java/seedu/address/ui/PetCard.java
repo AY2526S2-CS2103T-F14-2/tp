@@ -1,13 +1,12 @@
 package seedu.address.ui;
 
-import java.io.File;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import seedu.address.commons.util.AppUtil;
 import seedu.address.model.person.Pet;
 
 /**
@@ -16,7 +15,6 @@ import seedu.address.model.person.Pet;
 public class PetCard extends UiPart<Region> {
 
     private static final String FXML = "PetListCard.fxml";
-    private static final String IMG_NOT_FOUND_PATH = "src/main/resources/images/image-not-found.png";
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved
      * keywords in JavaFX.
@@ -61,15 +59,7 @@ public class PetCard extends UiPart<Region> {
 
     private void setPetImage() {
         String imagePath = pet.getPhotoPath().toString();
-        Image image;
-        try {
-            File photo = new File(imagePath);
-            image = new Image(photo.toURI().toString());
-        } catch (Exception e) {
-            File photo = new File(IMG_NOT_FOUND_PATH);
-            image = new Image(photo.toURI().toString());
-        }
-
+        Image image = AppUtil.loadImage(imagePath);
         petImage.setImage(image);
     }
 }

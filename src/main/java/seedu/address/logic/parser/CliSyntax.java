@@ -18,5 +18,5 @@ public class CliSyntax {
     public static final Prefix PREFIX_PHOTO = new Prefix("ph/");
 
     /* Default file paths */
-    public static final String PLACEHOLDER_IMAGE_PATH = "src/main/resources/images/placeholder-pet-logo.png";
+    public static final String PLACEHOLDER_IMAGE_PATH = "/images/placeholder-pet-logo.png";
 }
