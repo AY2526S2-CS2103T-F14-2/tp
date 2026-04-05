@@ -35,7 +35,7 @@ public class TypicalPets {
             .build();
     public static final Pet BARKUS = new PetBuilder()
             .withName("Barkus")
-            .withSpecies(VALID_PET_SPECIES_DOG)
+            .withSpecies("Dog")
             .withBreed("Poodle")
             .withNote("Very energetic")
             .withPhotoPath(VALID_PET_PHOTO_PATH)
@@ -52,6 +52,6 @@ public class TypicalPets {
 
 
     public static List<Pet> getTypicalPets() {
-        return new ArrayList<>(Arrays.asList(SNOOPY, DOGGY));
+        return new ArrayList<>(Arrays.asList(SNOOPY, DOGGY, BARKUS, MEOWY));
     }
 }

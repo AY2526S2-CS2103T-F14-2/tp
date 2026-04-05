@@ -17,10 +17,13 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.person.Breed;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.Note;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Pet;
 import seedu.address.model.person.PhotoPath;
+import seedu.address.model.person.Species;
 
 /**
  * Edits the details of an existing person in the address book.
@@ -102,9 +105,9 @@ public class EditPetCommand extends Command {
     private static Pet createEditedPet(Pet petToEdit, EditPetDescriptor editPetDescriptor) {
 
         Name updatedName = editPetDescriptor.getName().orElse(petToEdit.getName());
-        Name updatedSpecies = editPetDescriptor.getSpecies().orElse(petToEdit.getSpecies());
-        Name updatedBreed = editPetDescriptor.getBreed().orElse(petToEdit.getBreed());
-        Name updatedNote = editPetDescriptor.getNote().orElse(petToEdit.getNote());
+        Species updatedSpecies = editPetDescriptor.getSpecies().orElse(petToEdit.getSpecies());
+        Breed updatedBreed = editPetDescriptor.getBreed().orElse(petToEdit.getBreed());
+        Note updatedNote = editPetDescriptor.getNote().orElse(petToEdit.getNote());
         PhotoPath updatedPhotoPath = editPetDescriptor.getPhotoPath().orElse(petToEdit.getPhotoPath());
         return new Pet(updatedName, updatedSpecies, updatedBreed, updatedNote, updatedPhotoPath);
     }
@@ -140,9 +143,9 @@ public class EditPetCommand extends Command {
      */
     public static class EditPetDescriptor {
         private Name name;
-        private Name species;
-        private Name breed;
-        private Name note;
+        private Species species;
+        private Breed breed;
+        private Note note;
         private PhotoPath photoPath;
 
         public EditPetDescriptor() {
@@ -175,27 +178,27 @@ public class EditPetCommand extends Command {
             return Optional.ofNullable(name);
         }
 
-        public void setSpecies(Name species) {
+        public void setSpecies(Species species) {
             this.species = species;
         }
 
-        public Optional<Name> getSpecies() {
+        public Optional<Species> getSpecies() {
             return Optional.ofNullable(species);
         }
 
-        public void setBreed(Name breed) {
+        public void setBreed(Breed breed) {
             this.breed = breed;
         }
 
-        public Optional<Name> getBreed() {
+        public Optional<Breed> getBreed() {
             return Optional.ofNullable(breed);
         }
 
-        public void setNote(Name note) {
+        public void setNote(Note note) {
             this.note = note;
         }
 
-        public Optional<Name> getNote() {
+        public Optional<Note> getNote() {
             return Optional.ofNullable(note);
         }
 

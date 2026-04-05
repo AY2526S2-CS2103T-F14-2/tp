@@ -6,9 +6,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.person.Breed;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.Note;
 import seedu.address.model.person.Pet;
 import seedu.address.model.person.PhotoPath;
+import seedu.address.model.person.Species;
 
 /**
  * Jackson-friendly version of {@link Pet}.
@@ -44,9 +47,9 @@ public class JsonAdaptedPet {
      */
     public JsonAdaptedPet(Pet source) {
         petName = source.getName().fullName;
-        species = source.getSpecies().fullName;
-        breed = source.getBreed().fullName;
-        note = source.getNote().fullName;
+        species = source.getSpecies().speciesName;
+        breed = source.getBreed().breedName;
+        note = source.getNote().fullNote;
         photoPath = source.getPhotoPath().toString();
 
     }
@@ -70,26 +73,26 @@ public class JsonAdaptedPet {
         if (species == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "Species"));
         }
-        if (!Name.isValidName(species)) {
-            throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS);
+        if (!Species.isValidSpecies(species)) {
+            throw new IllegalValueException(Species.MESSAGE_CONSTRAINTS);
         }
-        final Name modelSpecies = new Name(species);
+        final Species modelSpecies = new Species(species);
 
         if (breed == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "Breed"));
         }
-        if (!Name.isValidName(breed)) {
-            throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS);
+        if (!Breed.isValidBreed(breed)) {
+            throw new IllegalValueException(Breed.MESSAGE_CONSTRAINTS);
         }
-        final Name modelBreed = new Name(breed);
+        final Breed modelBreed = new Breed(breed);
 
         if (note == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "Note"));
         }
-        if (!Name.isValidName(note)) {
-            throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS);
+        if (!Note.isValidNote(note)) {
+            throw new IllegalValueException(Note.MESSAGE_CONSTRAINTS);
         }
-        final Name modelNote = new Name(note);
+        final Note modelNote = new Note(note);
 
         String editedPath = photoPath;
         if (photoPath == null || !PhotoPath.isValidPhotoPath(photoPath)) {

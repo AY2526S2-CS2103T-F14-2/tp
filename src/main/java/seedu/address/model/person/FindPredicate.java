@@ -41,9 +41,9 @@ public class FindPredicate implements Predicate<Person> {
     private boolean testPets(Collection<Pet> pets, String keyword) {
         return pets.stream()
                 .anyMatch(pet -> StringUtil.containsWordIgnoreCase(pet.getName().fullName, keyword)
-                        || StringUtil.containsWordIgnoreCase(pet.getSpecies().fullName, keyword)
-                        || StringUtil.containsWordIgnoreCase(pet.getBreed().fullName, keyword)
-                        || StringUtil.containsWordIgnoreCase(pet.getNote().fullName, keyword));
+                        || StringUtil.containsWordIgnoreCase(pet.getSpecies().speciesName, keyword)
+                        || StringUtil.containsWordIgnoreCase(pet.getBreed().breedName, keyword)
+                        || StringUtil.containsWordIgnoreCase(pet.getNote().fullNote, keyword));
     }
 
     @Override

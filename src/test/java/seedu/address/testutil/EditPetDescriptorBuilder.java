@@ -1,9 +1,12 @@
 package seedu.address.testutil;
 
 import seedu.address.logic.commands.EditPetCommand.EditPetDescriptor;
+import seedu.address.model.person.Breed;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.Note;
 import seedu.address.model.person.Pet;
 import seedu.address.model.person.PhotoPath;
+import seedu.address.model.person.Species;
 
 /**
  * A utility class to help with building EditPetDescriptor objects.
@@ -47,7 +50,7 @@ public class EditPetDescriptorBuilder {
      * building.
      */
     public EditPetDescriptorBuilder withSpecies(String species) {
-        descriptor.setSpecies(new Name(species));
+        descriptor.setSpecies(new Species(species));
         return this;
     }
 
@@ -56,7 +59,7 @@ public class EditPetDescriptorBuilder {
      * building.
      */
     public EditPetDescriptorBuilder withBreed(String breed) {
-        descriptor.setBreed(new Name(breed));
+        descriptor.setBreed(new Breed(breed));
         return this;
     }
 
@@ -65,7 +68,7 @@ public class EditPetDescriptorBuilder {
      * building.
      */
     public EditPetDescriptorBuilder withNote(String note) {
-        descriptor.setNote(new Name(note));
+        descriptor.setNote(new Note(note));
         return this;
     }
 

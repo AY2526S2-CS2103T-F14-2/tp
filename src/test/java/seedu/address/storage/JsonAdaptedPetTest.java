@@ -9,9 +9,12 @@ import static seedu.address.testutil.TypicalPets.SNOOPY;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.person.Breed;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.Note;
 import seedu.address.model.person.Pet;
 import seedu.address.model.person.PhotoPath;
+import seedu.address.model.person.Species;
 
 public class JsonAdaptedPetTest {
     private static final String INVALID_NAME = "  ";
@@ -51,7 +54,7 @@ public class JsonAdaptedPetTest {
     public void toModelType_invalidPetSpecies_throwsIllegalValueException() {
         JsonAdaptedPet pet = new JsonAdaptedPet(VALID_PET_NAME, INVALID_SPECIES, VALID_PET_BREED, VALID_PET_NOTE,
                 VALID_PET_PHOTO_PATH);
-        String expectedMessage = String.format(Name.MESSAGE_CONSTRAINTS);
+        String expectedMessage = String.format(Species.MESSAGE_CONSTRAINTS);
         assertThrows(IllegalValueException.class, expectedMessage, pet::toModelType);
     }
 
@@ -67,7 +70,7 @@ public class JsonAdaptedPetTest {
     public void toModelType_invalidPetBreed_throwsIllegalValueException() {
         JsonAdaptedPet pet = new JsonAdaptedPet(VALID_PET_NAME, VALID_PET_SPECIES, INVALID_BREED, VALID_PET_NOTE,
                 VALID_PET_PHOTO_PATH);
-        String expectedMessage = String.format(Name.MESSAGE_CONSTRAINTS);
+        String expectedMessage = String.format(Breed.MESSAGE_CONSTRAINTS);
         assertThrows(IllegalValueException.class, expectedMessage, pet::toModelType);
     }
 
@@ -83,7 +86,7 @@ public class JsonAdaptedPetTest {
     public void toModelType_invalidPetNote_throwsIllegalValueException() {
         JsonAdaptedPet pet = new JsonAdaptedPet(VALID_PET_NAME, VALID_PET_SPECIES, VALID_PET_BREED, INVALID_TAG,
                 VALID_PET_PHOTO_PATH);
-        String expectedMessage = String.format(Name.MESSAGE_CONSTRAINTS);
+        String expectedMessage = String.format(Note.MESSAGE_CONSTRAINTS);
         assertThrows(IllegalValueException.class, expectedMessage, pet::toModelType);
     }
 
@@ -100,8 +103,8 @@ public class JsonAdaptedPetTest {
     public void toModelType_invalidPetPhotoPath_returnsPetWithPlaceholderImage() throws Exception {
         JsonAdaptedPet pet = new JsonAdaptedPet(VALID_PET_NAME, VALID_PET_SPECIES, VALID_PET_BREED, VALID_PET_NOTE,
                 "invalid/photo/path.png");
-        Pet expectedPet = new Pet(new Name(VALID_PET_NAME), new Name(VALID_PET_SPECIES), new Name(VALID_PET_BREED),
-                new Name(VALID_PET_NOTE), new PhotoPath(PLACEHOLDER_IMAGE_PATH.toString()));
+        Pet expectedPet = new Pet(new Name(VALID_PET_NAME), new Species(VALID_PET_SPECIES), new Breed(VALID_PET_BREED),
+                new Note(VALID_PET_NOTE), new PhotoPath(PLACEHOLDER_IMAGE_PATH.toString()));
         assertEquals(expectedPet, pet.toModelType());
     }
 
@@ -109,8 +112,8 @@ public class JsonAdaptedPetTest {
     public void toModelType_nullPetPhotoPath_returnsPetWithPlaceholderImage() throws Exception {
         JsonAdaptedPet pet = new JsonAdaptedPet(VALID_PET_NAME, VALID_PET_SPECIES, VALID_PET_BREED, VALID_PET_NOTE,
                 null);
-        Pet expectedPet = new Pet(new Name(VALID_PET_NAME), new Name(VALID_PET_SPECIES), new Name(VALID_PET_BREED),
-                new Name(VALID_PET_NOTE), new PhotoPath(PLACEHOLDER_IMAGE_PATH.toString()));
+        Pet expectedPet = new Pet(new Name(VALID_PET_NAME), new Species(VALID_PET_SPECIES), new Breed(VALID_PET_BREED),
+                new Note(VALID_PET_NOTE), new PhotoPath(PLACEHOLDER_IMAGE_PATH.toString()));
         assertEquals(expectedPet, pet.toModelType());
     }
 }

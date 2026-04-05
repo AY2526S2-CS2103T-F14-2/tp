@@ -2,23 +2,28 @@ package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
 
+import seedu.address.commons.util.ToStringBuilder;
+
 /**
  * Represents a Pet in the address book.
  * Guarantees: immutable;
  */
 public class Pet {
     private final Name petName;
-    private final Name species;
-    private final Name breed;
-    private final Name note;
+    private final Species species;
+    private final Breed breed;
+    private final Note note;
     private final PhotoPath photoPath;
 
     /**
-     * Constructs a {@code Pet}.
-     *
-     * @param petName A valid pet name.
+     * Returns a Pet object with the given pet name, species, breed, note and photo path.
+     * @param petName
+     * @param species
+     * @param breed
+     * @param note
+     * @param photoPath
      */
-    public Pet(Name petName, Name species, Name breed, Name note, PhotoPath photoPath) {
+    public Pet(Name petName, Species species, Breed breed, Note note, PhotoPath photoPath) {
         requireNonNull(petName);
         this.petName = petName;
         this.species = species;
@@ -31,15 +36,15 @@ public class Pet {
         return petName;
     }
 
-    public Name getSpecies() {
+    public Species getSpecies() {
         return species;
     }
 
-    public Name getBreed() {
+    public Breed getBreed() {
         return breed;
     }
 
-    public Name getNote() {
+    public Note getNote() {
         return note;
     }
 
@@ -71,6 +76,11 @@ public class Pet {
      * Format state as text for viewing.
      */
     public String toString() {
-        return "[" + petName + "]";
+        return new ToStringBuilder(this)
+                .add("name", petName)
+                .add("species", species)
+                .add("breed", breed)
+                .add("note", note)
+                .toString();
     }
 }
