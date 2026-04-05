@@ -2,6 +2,8 @@ package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
 
+import seedu.address.commons.util.ToStringBuilder;
+
 /**
  * Represents a Pet in the address book.
  * Guarantees: immutable;
@@ -74,6 +76,11 @@ public class Pet {
      * Format state as text for viewing.
      */
     public String toString() {
-        return "[" + petName + "]";
+        return new ToStringBuilder(this)
+                .add("name", petName)
+                .add("species", species)
+                .add("breed", breed)
+                .add("note", note)
+                .toString();
     }
 }

@@ -28,9 +28,12 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.AddPetCommand;
+import seedu.address.model.person.Breed;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.Note;
 import seedu.address.model.person.Pet;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Species;
 import seedu.address.testutil.PetBuilder;
 import seedu.address.testutil.TypicalPets;
 
@@ -112,15 +115,15 @@ public class AddPetCommandParserTest {
 
         // invalid species
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_AMY + INVALID_PET_SPECIES_DESC,
-                String.format(Name.MESSAGE_CONSTRAINTS));
+                String.format(Species.MESSAGE_CONSTRAINTS));
 
         // invalid breed
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_AMY + INVALID_PET_BREED_DESC,
-                String.format(Name.MESSAGE_CONSTRAINTS));
+                String.format(Breed.MESSAGE_CONSTRAINTS));
 
         // invalid note
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_AMY + INVALID_PET_NOTE_DESC,
-                String.format(Name.MESSAGE_CONSTRAINTS));
+                String.format(Note.MESSAGE_CONSTRAINTS));
 
         // two invalid values, only first invalid value reported
         assertParseFailure(parser, INVALID_NAME_DESC + INVALID_PHONE_DESC,

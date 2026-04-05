@@ -40,7 +40,12 @@ public class PetTest {
 
     @Test
     public void toStringMethod() {
-        String expected = "[" + "Snoopy" + "]";
+        String expected = Pet.class.getCanonicalName()
+                + "{name=" + SNOOPY.getName()
+                + ", species=" + SNOOPY.getSpecies()
+                + ", breed=" + SNOOPY.getBreed()
+                + ", note=" + SNOOPY.getNote()
+                + "}";
         assertEquals(expected, SNOOPY.toString());
     }
 }

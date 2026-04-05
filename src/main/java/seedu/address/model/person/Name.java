@@ -10,7 +10,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Name {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Attribute should not be blank";
+            "Name should not be blank";
     public static final String VALIDATION_REGEX = "[^\\s].*";
 
     public final String fullName;

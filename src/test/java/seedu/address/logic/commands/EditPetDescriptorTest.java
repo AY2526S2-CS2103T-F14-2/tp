@@ -11,7 +11,10 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_PET_SPECIES;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.EditPetCommand.EditPetDescriptor;
+import seedu.address.model.person.Breed;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.Note;
+import seedu.address.model.person.Species;
 import seedu.address.testutil.EditPetDescriptorBuilder;
 
 public class EditPetDescriptorTest {
@@ -21,9 +24,9 @@ public class EditPetDescriptorTest {
         // same values -> returns true
         EditPetDescriptor descriptor = new EditPetDescriptor();
         descriptor.setName(new Name(VALID_PET_NAME));
-        descriptor.setSpecies(new Name(VALID_PET_SPECIES));
-        descriptor.setBreed(new Name(VALID_PET_BREED));
-        descriptor.setNote(new Name(VALID_PET_NOTE_CUTE));
+        descriptor.setSpecies(new Species(VALID_PET_SPECIES));
+        descriptor.setBreed(new Breed(VALID_PET_BREED));
+        descriptor.setNote(new Note(VALID_PET_NOTE_CUTE));
         EditPetDescriptor descriptorWithSameValues = new EditPetDescriptor(descriptor);
         assertTrue(descriptor.equals(descriptorWithSameValues));
 
