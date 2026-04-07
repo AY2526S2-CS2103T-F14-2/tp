@@ -61,7 +61,15 @@
         "glossary": "Glossary",
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
-        "deleting-a-person": "Deleting a person"
+        "adding-a-client": "Adding a client",
+        "editing-a-client": "Editing a client",
+        "deleting-a-client": "Deleting a client",
+        "adding-a-pet": "Adding a pet",
+        "editing-a-pet": "Editing a pet",
+        "deleting-a-pet": "Deleting a pet",
+        "finding-clients-and-pets": "Finding clients and pets",
+        "appendix-effort": "Appendix: Effort",
+        "appendix-planned-enhancements": "Appendix: Planned Enhancements"
       },
       "headingKeywords": {}
     },
@@ -124,7 +132,8 @@
         "archiving-data-files-coming-in-v2-0": "Archiving data files [coming in v2.0]",
         "faq": "FAQ",
         "known-issues": "Known issues",
-        "command-summary": "Command summary"
+        "command-summary": "Command summary",
+        "short-form-commands": "Short-form commands"
       },
       "headingKeywords": {}
     },
