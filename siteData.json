@@ -51,6 +51,7 @@
         "model-component": "Model component",
         "storage-component": "Storage component",
         "implementation": "Implementation",
+        "actual-person-pet-relationship": "[Actual] Person-pet relationship",
         "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
         "appendix-requirements": "Appendix: Requirements",
