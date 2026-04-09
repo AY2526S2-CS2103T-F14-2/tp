@@ -123,7 +123,7 @@
         "listing-all-clients-and-pets-list": "Listing all clients and pets : list",
         "editing-a-client-editclient": "Editing a client : editClient",
         "editing-a-pet-editpet": "Editing a pet : editPet",
-        "locating-clients-by-name-find": "Locating clients by name: find",
+        "locating-clients-and-pets-by-keywords-find": "Locating clients and pets by keywords: find",
         "deleting-a-client-deleteclient": "Deleting a client : deleteClient",
         "deleting-a-pet-deletepet": "Deleting a pet : deletePet",
         "clearing-all-records-clear": "Clearing all records : clear",
