@@ -113,6 +113,11 @@ Shows all clients and pets.
 
 Format: `list`
 
+<box type="info" seamless>
+
+**Pet Indexing:** Pets are numbered globally across all clients. For example, if Client 1 has pets A and B, and Client 2 has pet C, their indexes would be 1, 2, and 3 respectively. This global indexing is used by `editPet` and `deletePet` commands.
+</box>
+
 ### Editing a client : `editClient`
 
 Edits an existing client.
