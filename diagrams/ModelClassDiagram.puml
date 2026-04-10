@@ -20,7 +20,6 @@ Package Model as ModelPackage <<Rectangle>>{
     Class Phone
     Class Tag
     Class Pet
-    Class "Name" as PetName
     Class Species
     Class Breed
     Class Note
@@ -51,7 +50,7 @@ Person *--> "0..1" Address
 Person *--> "*" Tag
 Person "1" *---> "*" Pet : owns >
 
-Pet *--> "1" PetName
+Pet *--> "1" Name
 Pet *--> "0..1" Species
 Pet *--> "0..1" Breed
 Pet *--> "0..1" Note
