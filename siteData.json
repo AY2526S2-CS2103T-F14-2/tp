@@ -123,7 +123,11 @@
       "title": "User Guide",
       "headings": {
         "hairy-pawter-user-guide": "Hairy Pawter User Guide",
+        "who-is-this-guide-for": "Who is this guide for?",
+        "quick-start": "Quick Start",
         "installation": "Installation",
+        "overview-of-the-interface": "Overview of the interface",
+        "try-it-yourself-a-first-session": "Try it yourself: a first session",
         "commands": "Commands",
         "viewing-help-help": "Viewing help : help",
         "adding-a-client-addclient": "Adding a client: addClient",
